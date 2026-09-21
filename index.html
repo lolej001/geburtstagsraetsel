@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mission 29 – THE EAST</title>
+  <style>
+    :root {
+      --bg:#10131a; --panel:#1b2130; --panel2:#252d40;
+      --text:#f4f7fb; --muted:#aeb8cb; --accent:#e5b96b;
+      --accent2:#7dd3c7; --danger:#f2a0a0; --border:rgba(255,255,255,.12);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;min-height:100vh;color:var(--text);
+      background:radial-gradient(circle at top,rgba(125,211,199,.13),transparent 35%),
+                 radial-gradient(circle at bottom right,rgba(229,185,107,.12),transparent 35%),var(--bg);
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55;
+    }
+    main{width:min(100% - 32px,700px);margin:auto;padding:28px 0 60px}
+    .panel,.finale{background:linear-gradient(145deg,rgba(37,45,64,.96),rgba(27,33,48,.96));
+      border:1px solid var(--border);border-radius:24px;padding:clamp(22px,5vw,38px);
+      box-shadow:0 18px 70px rgba(0,0,0,.22)}
+    .eyebrow{color:var(--accent);font-size:.8rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+    h1,h2{line-height:1.15;margin:8px 0 14px} h1{font-size:clamp(2.2rem,9vw,4.5rem);letter-spacing:-.05em}
+    h2{font-size:clamp(1.5rem,5vw,2.2rem)} p{color:var(--muted)}
+    .badge{display:inline-flex;border:1px solid var(--border);border-radius:999px;padding:5px 10px;
+      color:var(--accent2);font-size:.8rem;font-weight:700}
+    .clue{border-left:3px solid var(--accent);padding:12px 15px;background:rgba(229,185,107,.07);
+      border-radius:0 12px 12px 0;color:var(--text);margin:18px 0}
+    label{display:block;font-weight:700;margin:20px 0 8px}
+    input{width:100%;padding:14px 15px;border-radius:13px;border:1px solid var(--border);
+      background:rgba(0,0,0,.22);color:var(--text);font-size:1rem;outline:none}
+    input:focus{border-color:var(--accent2);box-shadow:0 0 0 3px rgba(125,211,199,.14)}
+    button{width:100%;margin-top:12px;padding:14px 16px;border:0;border-radius:13px;
+      background:var(--accent);color:#17130d;font-weight:850;font-size:1rem;cursor:pointer}
+    button.secondary{background:var(--panel2);color:var(--text);border:1px solid var(--border)}
+    .feedback{min-height:26px;margin:12px 0 0;font-weight:700}.error{color:var(--danger)}.success{color:var(--accent2)}
+    .hidden{display:none!important}.finale{text-align:center;border-color:rgba(229,185,107,.45);margin-top:18px}
+    .east{color:var(--accent);font-size:clamp(2.8rem,13vw,6rem);font-weight:950;letter-spacing:-.07em;margin:12px 0}
+    .footer{text-align:center;color:var(--muted);font-size:.8rem;margin-top:18px}
+    .mini{font-size:.9rem}
+  </style>
+</head>
+<body>
+<main>
+<section class="panel">
+  <div class="eyebrow">Mission 29 · Geburtstagsrätsel</div>
+  <h1>Lieber Jannik,</h1>
+
+  <p>
+    wir wünschen dir alles Gute zu deinem 29. Geburtstag! 🎉
+  </p>
+
+  <p>
+    Als kleines Geburtstagsrätsel haben wir uns etwas für dich ausgedacht:
+    Auf deinem DIN-A3-Blatt wartet eine Spur darauf, von dir entschlüsselt
+    zu werden. Löse die Aufgaben, sammle vier Buchstaben und finde am Ende
+    das geheime Ziel.
+  </p>
+
+  <div class="clue">
+    <strong>Deine Aufgabe:</strong><br>
+    Löse das Rätsel auf dem Blatt. Für jede gefundene Zahl erhältst du
+    einen bestimmten Wert. Finde heraus, welche Himmelsrichtung
+    jeweils zu diesem Wert gehört, und notiere dir die entsprechende
+    Richtung. Nutze anschließend die Zuordnung auf dem Blatt.
+  </div>
+
+  <p>
+    Wenn du alle vier Buchstaben gesammelt hast, ergibt sich daraus ein
+    Wort. Gib dieses unten ein und finde heraus, ob du die
+    Mission erfolgreich gelöst hast.
+  </p>
+
+  <p>
+    Viel Spaß beim Knobeln, Suchen und Entdecken! 🧭
+  </p>
+
+  <p>
+    Deine<br>
+    Delia, Leon &amp; Livia
+  </p>
+</section>
+
+
+  <section class="panel" style="margin-top:18px">
+    <div class="eyebrow">Finaler Zugang</div>
+    <h2>Welches Wort hast du gefunden?</h2>
+    <p>
+      Du brauchst nur ein einziges Wort. Achte auf die Reihenfolge,
+      in der du die vier Buchstaben gesammelt hast.
+    </p>
+    <label for="answer">Deine Lösung</label>
+    <input id="answer" autocomplete="off" placeholder="Vier Buchstaben">
+    <button onclick="checkAnswer()">Lösung prüfen</button>
+    <div id="feedback" class="feedback" role="status"></div>
+  </section>
+
+<section id="finale" class="finale hidden"> <div class="eyebrow">Mission abgeschlossen</div> <h2>Du hast den Weg gefunden!</h2>
+
+<div class="east">THE EAST</div>
+
+<p> Du hast dir deine Belohnung redlich verdient und deshalb laden wir dich zu einem <strong>All-You-Can-Eat-Buffet im THE EAST in Hanau</strong> ein. </p>
+
+<p> Jetzt wird nicht mehr gerätselt, sondern ordentlich geschlemmt! 🍜🥢 </p>
+
+<p> <strong>Wir freuen uns auf einen schönen Abend mit Euch!</strong> </p>
+
+<p> Delia, Leon &amp; Livia ❤️ </p>
+
+<button class="secondary" onclick="resetPuzzle()">Noch einmal anzeigen</button>
+
+</section>
+
+  <div class="footer">Mission 29 · Nur eine Lösung zählt.</div>
+</main>
+
+<script>
+  function normalize(value) {
+    return value.trim().toLowerCase().replace(/\s+/g, " ");
+  }
+
+  function checkAnswer() {
+    const value = normalize(document.getElementById("answer").value);
+    const feedback = document.getElementById("feedback");
+    const finale = document.getElementById("finale");
+
+    if (value === "east") {
+      feedback.textContent = "Richtig. Du hast den geheimen Ort gefunden.";
+      feedback.className = "feedback success";
+      finale.classList.remove("hidden");
+      finale.scrollIntoView({behavior:"smooth", block:"start"});
+    } else {
+      feedback.textContent = "Noch nicht. Prüfe die vier Richtungen und ihre Buchstaben auf dem Blatt.";
+      feedback.className = "feedback error";
+    }
+  }
+
+  function resetPuzzle() {
+    document.getElementById("answer").value = "";
+    document.getElementById("feedback").textContent = "";
+    document.getElementById("finale").classList.add("hidden");
+    window.scrollTo({top:0, behavior:"smooth"});
+  }
+
+  document.getElementById("answer").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") checkAnswer();
+  });
+</script>
+</body>
+</html>
